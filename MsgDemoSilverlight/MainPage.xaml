@@ -3,11 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" x:Class="MsgDemoSilverlight.MainPage"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking" 
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    x:Class="MsgDemoSilverlight.MainPage"
     mc:Ignorable="d"
     d:DesignHeight="810" d:DesignWidth="600">
-    <Grid >
-        <dxlc:LayoutControl HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
+    <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
+        <dxlc:LayoutControl >
             <dxlc:LayoutGroup Header="LayoutGroup" View="Tabs" x:Name="FunctionSelect" SelectedTabChildChanged="FunctionSelect_SelectedTabChildChanged">
                 <dxlc:LayoutGroup Header="FablinkEventWebClient">
                     <dxlc:LayoutControl Orientation="Vertical" >
@@ -25,31 +29,36 @@
                                     <dxe:TextEdit x:Name="MessageId"/>
                                 </dxlc:LayoutItem>
                                 <dxlc:LayoutItem>
-                                    <Button x:Name="SendMessage" Click="SendMessage_Click" Height="20" Content="Send Message"/>
+                                    <Button x:Name="SendMessage" Click="SendMessage_Click" Content="Send Message"/>
                                 </dxlc:LayoutItem>
                             </dxlc:LayoutGroup>
                         </dxlc:LayoutGroup>
                         <dxlc:LayoutGroup Header="LayoutGroup" View="Group">
                             <dxlc:LayoutGroup Header="RequestBody" View="GroupBox">
-                                <dxlc:LayoutItem >
-                                    <dxe:TextEdit x:Name="RequestBody" AcceptsReturn="True" Height="620" VerticalScrollBarVisibility="Visible" />
-                                </dxlc:LayoutItem>
+                                <dxe:TextEdit x:Name="RequestBody" AcceptsReturn="True" />
                             </dxlc:LayoutGroup>
                             <dxlc:LayoutGroup Header="ReplyBody" View="GroupBox" Orientation="Vertical">
-                                <dxlc:LayoutItem >
-                                    <dxe:TextEdit x:Name="ReplyBody" AcceptsReturn="True" Height="596" VerticalScrollBarVisibility="Visible" />
-                                </dxlc:LayoutItem>
+                                <dxe:TextEdit x:Name="ReplyBody" AcceptsReturn="True"/>
                                 <dxlc:LayoutGroup>
-                                    <dxlc:LayoutItem >
-                                        <Button x:Name="GoToDiffLeftButton" Height="20" Content="Go To Diff Left" Click="ToDiffLeft_Click"/>
-                                    </dxlc:LayoutItem>
-                                    <dxlc:LayoutItem >
-                                        <Button x:Name="GoToDiffRightButton" Height="20" Content="Go To Diff Right" Click="ToDiffRight_Click"/>
-                                    </dxlc:LayoutItem>
+                                    <Button x:Name="GoToDiffLeftButton" Height="20" Content="Go To Diff Left" Click="ToDiffLeft_Click"/>
+                                    <Button x:Name="GoToDiffRightButton" Height="20" Content="Go To Diff Right" Click="ToDiffRight_Click"/>
                                 </dxlc:LayoutGroup>
                             </dxlc:LayoutGroup>
                         </dxlc:LayoutGroup>
                     </dxlc:LayoutControl>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup Header="Decode Fiddler Reply" Orientation="Vertical" >
+                    <dxlc:LayoutGroup Header="FiddleReplyCode" View="GroupBox">
+                        <dxe:TextEdit x:Name="FiddleReplyCode" AcceptsReturn="True" Height="50" EditValueChanged="FiddleReplyCode_EditValueChanged" GotFocus="FiddleReplyCode_GotFocus" TextWrapping="Wrap" LostFocus="FiddleReplyCode_LostFocus"/>
+                    </dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup Header="Decode" View="GroupBox" Orientation="Vertical">
+                        <dxe:TextEdit x:Name="DecodeToXml" AcceptsReturn="True" />
+                        <dxlc:LayoutGroup Height="20">
+                            <Button Content="Go To Diff Left" Click="ToDiffLeft_Click"/>
+                            <Button Content="Go To Diff Right" Click="ToDiffRight_Click"/>
+                        </dxlc:LayoutGroup>
+                    </dxlc:LayoutGroup>
+
                 </dxlc:LayoutGroup>
                 <dxlc:LayoutGroup Header="Diff KXmlItem" Orientation="Vertical">
                     <dxlc:LayoutGroup Header="Command" View="Group">
@@ -57,14 +66,10 @@
                     </dxlc:LayoutGroup>
                     <dxlc:LayoutGroup Header="Show Message" View="Group">
                         <dxlc:LayoutGroup Header="Original" View="GroupBox">
-                            <dxlc:LayoutItem >
-                                <dxe:TextEdit x:Name="LeftXml" Height="660" AcceptsReturn="True" EditValueChanged="LeftXml_EditValueChanged"/>
-                            </dxlc:LayoutItem>
+                            <dxe:TextEdit x:Name="LeftXml" AcceptsReturn="True" EditValueChanged="LeftXml_EditValueChanged"  />
                         </dxlc:LayoutGroup>
                         <dxlc:LayoutGroup Header="Changed" View="GroupBox">
-                            <dxlc:LayoutItem>
-                                <dxe:TextEdit x:Name="RightXml" Height="660" AcceptsReturn="True" EditValueChanged="LeftXml_EditValueChanged"/>
-                            </dxlc:LayoutItem>
+                            <dxe:TextEdit x:Name="RightXml" AcceptsReturn="True" EditValueChanged="LeftXml_EditValueChanged"  />
                         </dxlc:LayoutGroup>
                     </dxlc:LayoutGroup>
                 </dxlc:LayoutGroup>
