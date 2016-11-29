@@ -53,10 +53,6 @@
                     </dxlc:LayoutGroup>
                     <dxlc:LayoutGroup Header="Decode" View="GroupBox" Orientation="Vertical">
                         <dxe:TextEdit x:Name="DecodeToXml" AcceptsReturn="True" />
-                        <dxlc:LayoutGroup Height="20">
-                            <Button Content="Go To Diff Left" Click="ToDiffLeft_Click"/>
-                            <Button Content="Go To Diff Right" Click="ToDiffRight_Click"/>
-                        </dxlc:LayoutGroup>
                     </dxlc:LayoutGroup>
 
                 </dxlc:LayoutGroup>

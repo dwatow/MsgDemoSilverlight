@@ -52,7 +52,7 @@ namespace MsgDemoSilverlight
         private void ToDiffRight_Click(object sender, RoutedEventArgs e)
         {
             RightXml.Text = ReplyBody.Text;
-            FunctionSelect.SelectedTabIndex = 1;
+            FunctionSelect.SelectedTabIndex = 2;
         }
 
         private void DiffMessage_Click(object sender, RoutedEventArgs e)
@@ -79,7 +79,7 @@ namespace MsgDemoSilverlight
         private void LeftXml_EditValueChanged(object sender, DevExpress.Xpf.Editors.EditValueChangedEventArgs e)
         {
             int curr_select_index = FunctionSelect.SelectedTabIndex;
-            FunctionSelect.SelectedTabIndex = 1;
+            FunctionSelect.SelectedTabIndex = 2;
             if (LeftXml.Text.Length != 0 && RightXml.Text.Length != 0)
             {
                 DiffMsgButton.IsEnabled = true;
